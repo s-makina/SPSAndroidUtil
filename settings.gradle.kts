@@ -10,10 +10,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://jitpack.io")
     }
 }
 
 rootProject.name = "SPSAndroidUtil"
 include(":app")
-include(":spscomposeutil")
 include(":sps-android-util")

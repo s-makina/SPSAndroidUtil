@@ -68,4 +68,5 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     implementation(project(":sps-android-util"))
+//    implementation("com.github.s-makina:SPSComposeUtil:1.0.1")
 }
