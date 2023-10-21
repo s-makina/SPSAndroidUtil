@@ -17,6 +17,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -27,7 +29,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 
 @Composable
-fun Alert(alertType: AlertType, onClose: ()-> Unit = {}) {
+fun Alert(
+    state: MutableState<Boolean> = mutableStateOf(true),
+    alertType: AlertType,
+    onClose: () -> Unit = {}
+) {
+    if (state.value) {
         Dialog(onDismissRequest = { /*TODO*/ }) {
             Surface(
                 modifier = Modifier.fillMaxWidth(1f),
@@ -65,7 +72,10 @@ fun Alert(alertType: AlertType, onClose: ()-> Unit = {}) {
 
                     }
                     Button(
-                        onClick = { onClose() },
+                        onClick = {
+                            onClose()
+                            state.value = false
+                        },
                         shape = RoundedCornerShape(16.dp),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = alertType.getContainerColor(),
@@ -78,6 +88,7 @@ fun Alert(alertType: AlertType, onClose: ()-> Unit = {}) {
                 }
             }
         }
+    }
 }
 
 sealed class AlertType(
