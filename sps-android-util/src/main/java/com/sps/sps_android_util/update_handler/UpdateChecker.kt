@@ -5,7 +5,6 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalContext
 import com.google.android.play.core.ktx.AppUpdateResult
 import com.sps.sps_android_util.util.findActivity
-import com.vtigo.sales_pro.ui.update_handler.UpdateInProgress
 import se.warting.inappupdate.compose.rememberInAppUpdateState
 import kotlinx.coroutines.launch
 
